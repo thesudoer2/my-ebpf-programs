@@ -1,0 +1,21 @@
+# Ignore all
+*
+
+# Undo ignore all with extensions
+!*.*
+
+# Undo ignore all dirs
+!*/
+
+# Undo ignore for Makefile
+!*/Makefile
+
+# Object files
+*.o
+
+# Build dirs
+build/*
+Build/*
+Release/*
+Debug/*
+RelWithDebInfo/*
