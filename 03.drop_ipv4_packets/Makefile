@@ -1,13 +1,13 @@
 # Variables
-BPF_PROG_FS_NAME = bpf_xdp_packet_capturer
-BPF_PROG_NAME = bpf_packet_capturer
-BPF_SRC = bpf_xdp_packet_capturer.c
-BPF_OBJ_CLANG = bpf_xdp_packet_capturer_clang.o
+BPF_PROG_FS_NAME = xdp_drop_ipv4
+BPF_PROG_NAME = xdp_drop_ipv4
+BPF_SRC = drop_ipv4.c
+BPF_OBJ_CLANG = drop_ipv4_clang.o
 
 .PHONY: install_dependencies build_clang clean all
 
 install_dependencies:
-	sudo apt install -y libbpf-dev clang libc6-dev libc6-dev-i386-amd64-cross
+	sudo apt install -y libbpf-dev clang
 
 build_clang:
 	clang -I/usr/include/$(shell uname -m)-linux-gnu/ -I/usr/$(shell uname -m)-linux-gnu/include/ -c $(BPF_SRC) -target bpf -Og -g -o $(BPF_OBJ_CLANG)

@@ -1,4 +1,4 @@
-#include <inttypes.h>
+#include <stdint.h>
 
 #include <linux/bpf.h>
 #include <bpf/bpf_helpers.h>
@@ -9,7 +9,8 @@ SEC("xdp")
 int bpf_packet_capturer(void* ctx) {
     (void)ctx;
 
-    bpf_printk("bpf_packet_capturer, packet number: %ld\n", packet_counter);
+    bpf_printk("bpf_packet_capturer, packet number: %ld\n", packet_counter++);
+
     return XDP_PASS;
 }
 
